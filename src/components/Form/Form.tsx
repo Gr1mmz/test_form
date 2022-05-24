@@ -10,6 +10,10 @@ import SelectCity from "./SelectCity/SelectCity";
 import SelectSubject from "./SelectSubject/SelectSubject";
 import SelectMethod from "./SelectMethod/SelectMethod";
 import SubmitCheckbox from "./SubmitCheckbox/SubmitCheckbox";
+import NameInput from "./NameInput/NameInput";
+import PhoneInput from "./PhoneInput/PhoneInput";
+import EmailInput from "./EmailInput/EmailInput";
+import QuestionInput from "./QuestionInput/QuestionInput";
 
 const Form = () => {
   return (
@@ -25,27 +29,18 @@ const Form = () => {
         boxShadow: 3,
       }}
     >
-      <Typography variant='h2' component='h2'
-                  sx={{
-                    fontSize: '20px',
-                    color: 'primary.main',
-                  }}
-      >
+      <Typography variant='h2' component='h2' sx={{ fontSize: '20px', color: 'primary.main' }} >
         Форма обратной связи
       </Typography>
       <FormControl fullWidth>
-        <Stack spacing={2}
-               sx={{
-                 margin: '2em 0 0 0'
-               }}
-        >
-          <TextField id="outlined-basic" label="Ваше имя" variant="outlined" required />
+        <Stack spacing={2} sx={{ margin: '2em 0 0 0' }} >
+          <NameInput/>
           <SelectCity/>
-          <TextField id="outlined-basic" label="Телефон" variant="outlined" type='number' />
-          <TextField id="outlined-basic" label="E-mail" variant="outlined" type='email' />
+          <PhoneInput/>
+          <EmailInput/>
           <SelectSubject/>
           <SelectMethod/>
-          <TextField id="outlined-basic" label="Текст вопроса" variant="outlined" required multiline maxRows={5} />
+          <QuestionInput/>
           <SubmitCheckbox/>
           <Button variant='contained' type='submit'>Отправить</Button>
         </Stack>
