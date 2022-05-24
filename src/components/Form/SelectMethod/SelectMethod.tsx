@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from "@mui/material";
+import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from '@mui/material';
 
 const SelectMethod = () => {
   const [method, setMethod] = React.useState('');
@@ -9,12 +9,12 @@ const SelectMethod = () => {
   };
   return (
     <FormControl>
-      <InputLabel id="selectMethod">Предпочитаемый способ связи</InputLabel>
+      <InputLabel id='selectMethod'>Предпочитаемый способ связи</InputLabel>
       <Select
-        labelId="selectMethod"
-        id="selectMethod"
+        labelId='selectMethod'
+        id='selectMethod'
         value={method}
-        label="Предпочитаемый способ связи"
+        label='Предпочитаемый способ связи'
         onChange={changeMethodHandler}
       >
         <MenuItem value='E-mail'>E-mail</MenuItem>

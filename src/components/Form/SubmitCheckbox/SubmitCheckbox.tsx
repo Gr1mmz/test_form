@@ -1,5 +1,5 @@
 import React from 'react';
-import {Checkbox, FormControlLabel} from "@mui/material";
+import {Checkbox, FormControlLabel} from '@mui/material';
 
 const SubmitCheckbox = () => {
   return (

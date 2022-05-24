@@ -1,19 +1,13 @@
 import React from 'react';
-import {
-  Box, Button,
-  FormControl,
-  Stack,
-  TextField,
-  Typography
-} from '@mui/material';
-import SelectCity from "./SelectCity/SelectCity";
-import SelectSubject from "./SelectSubject/SelectSubject";
-import SelectMethod from "./SelectMethod/SelectMethod";
-import SubmitCheckbox from "./SubmitCheckbox/SubmitCheckbox";
-import NameInput from "./NameInput/NameInput";
-import PhoneInput from "./PhoneInput/PhoneInput";
-import EmailInput from "./EmailInput/EmailInput";
-import QuestionInput from "./QuestionInput/QuestionInput";
+import {Box, Button, FormControl, Stack, Typography} from '@mui/material';
+import SelectCity from './SelectCity/SelectCity';
+import SelectSubject from './SelectSubject/SelectSubject';
+import SelectMethod from './SelectMethod/SelectMethod';
+import SubmitCheckbox from './SubmitCheckbox/SubmitCheckbox';
+import NameInput from './NameInput/NameInput';
+import PhoneInput from './PhoneInput/PhoneInput';
+import EmailInput from './EmailInput/EmailInput';
+import QuestionInput from './QuestionInput/QuestionInput';
 
 const Form = () => {
   return (

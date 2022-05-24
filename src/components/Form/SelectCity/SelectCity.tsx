@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from "@mui/material";
+import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from '@mui/material';
 
 const SelectCity = () => {
   const [city, setCity] = React.useState('');
@@ -9,12 +9,12 @@ const SelectCity = () => {
   };
   return (
     <FormControl>
-      <InputLabel id="selectCity">Город</InputLabel>
+      <InputLabel id='selectCity'>Город</InputLabel>
       <Select
-        labelId="selectCity"
-        id="selectCity"
+        labelId='selectCity'
+        id='selectCity'
         value={city}
-        label="Город"
+        label='Город'
         onChange={changeCityHandler}
       >
 

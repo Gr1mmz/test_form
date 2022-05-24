@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from "@mui/material";
+import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from '@mui/material';
 
 const SelectSubject = () => {
   const [subject, setSubject] = React.useState('');
@@ -9,12 +9,12 @@ const SelectSubject = () => {
   };
   return (
     <FormControl>
-      <InputLabel id="selectSubject">Тема вопроса</InputLabel>
+      <InputLabel id='selectSubject'>Тема вопроса</InputLabel>
       <Select
-        labelId="selectSubject"
-        id="selectSubject"
+        labelId='selectSubject'
+        id='selectSubject'
         value={subject}
-        label="Тема вопроса"
+        label='Тема вопроса'
         onChange={changeSubjectHandler}
       >
         <MenuItem value='HTML'>HTML</MenuItem>
