@@ -1,5 +1,28 @@
 import React from 'react';
 import {InputAdornment, TextField} from '@mui/material';
+import { IMaskInput } from 'react-imask';
+
+interface CustomProps {
+  onChange: (event: { target: { name: string; value: string } }) => void;
+  name: string;
+}
+
+const TextMaskCustom = React.forwardRef<HTMLElement, CustomProps>(
+  function TextMaskCustom(props, ref) {
+    const { onChange, ...other } = props;
+    return (
+      <IMaskInput
+        {...other}
+        mask="(#00) 000-00-00"
+        definitions={{
+          '#': /[1-9]/,
+        }}
+        onAccept={(value: any) => onChange({ target: { name: props.name, value } })}
+        overwrite
+      />
+    );
+  },
+);
 
 type PhoneInputProps = {
   name: string,
@@ -15,7 +38,10 @@ const PhoneInput = ({name, value, onChange, onBlur, error}: PhoneInputProps) => 
                error={!!error} helperText={error ? error : ''}
                onChange={(e) => onChange(e)}
                onBlur={(e) => onBlur(e)}
-               InputProps={{ startAdornment: <InputAdornment position="start">+7</InputAdornment> }} />
+               InputProps={{
+                 startAdornment: <InputAdornment position="start">+7</InputAdornment>,
+                 inputComponent: TextMaskCustom as any
+                }}/>
   );
 };
 

@@ -45,6 +45,7 @@
     "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.8.1",
     "formik": "^2.2.9",
+    "react-imask": "^6.4.2",
     "yup": "^0.32.11"
   }
 }

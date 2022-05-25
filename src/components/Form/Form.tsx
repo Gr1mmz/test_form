@@ -17,8 +17,7 @@ const Form = () => {
     question: yup.string().required('Обязательное поле'),
     checkbox: yup.boolean().oneOf([true]).required(),
     email: yup.string().email('Введите e-mail в формате mail@mail.ru'),
-    phone: yup.string().max(10, 'Введите корректный номер телефона')
-      .matches(/^(\\s*)?(\\+)?([- _():=+]?\\d[- _():=+]?){10}(\\s*)?$/, 'Введите корректный номер телефона')
+    phone: yup.string().length(15, 'Введите корректный номер телефона')
   });
   return (
     <Formik
@@ -34,13 +33,14 @@ const Form = () => {
       }}
       validateOnBlur
       validationSchema={validationSchema}
-      onSubmit={values => console.log(values)}
+      onSubmit={values => {
+        console.log(values);
+        console.log(values.phone.length);
+      }}
     >
       {({values,
           errors,
           touched,
-          isValid,
-          dirty,
           handleChange,
           handleBlur,
           handleSubmit
