@@ -38,7 +38,7 @@ const Form = () => {
         values.phone = `+7 ${values.phone}`;
         axios.post(`/feedback`, {values})
           .then(res => {
-            console.log(`Данные успешно отправлены!`);
+            console.log(`Данные успешно отправлены! ${res}`);
             console.log(`Отправленные данные:`);
             console.log(values);
             actions.resetForm({
