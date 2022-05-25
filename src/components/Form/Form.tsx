@@ -1,6 +1,7 @@
 import React from 'react';
 import {Formik} from 'formik';
 import * as yup from 'yup';
+import axios from 'axios';
 import {Box, Button, Stack, Typography} from '@mui/material';
 import SelectCity from './SelectCity/SelectCity';
 import SelectSubject from './SelectSubject/SelectSubject';
@@ -34,8 +35,18 @@ const Form = () => {
       validateOnBlur
       validationSchema={validationSchema}
       onSubmit={values => {
-        console.log(values);
-        console.log(values.phone.length);
+        values.phone = `+7 ${values.phone}`;
+        axios.post(`/feedback`, {values})
+          .then(res => {
+            console.log(`Данные успешно отправлены! ${res}`);
+            console.log(`Отправленные данные:`);
+            console.log(values);
+          })
+          .catch(error => {
+            console.log(`Ошибка при передаче данных! ${error}`);
+            console.log(`Отправленные данные:`);
+            console.log(values);
+          });
       }}
     >
       {({values,
