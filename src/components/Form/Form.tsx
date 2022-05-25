@@ -59,30 +59,25 @@ const Form = () => {
             console.log(`Отправленные данные:`);
             console.log(values);
           });
-
       }}
     >
       {({values,
           errors,
           touched,
-          isValid,
           handleChange,
           handleBlur,
           handleSubmit,
-          handleReset
         }) => (
-        <Box
-          component='form'
-          onSubmit={handleSubmit}
-          sx={{
-            width: '40%',
-            minWidth: '300px',
-            minHeight: 300,
-            padding: '2em',
-            margin: '1em 0',
-            boxSizing: 'border-box',
-            boxShadow: 3,
-          }}
+        <Box component='form' onSubmit={handleSubmit}
+             sx={{
+               width: '40%',
+               minWidth: '300px',
+               minHeight: 300,
+               padding: '2em',
+               margin: '1em 0',
+               boxSizing: 'border-box',
+               boxShadow: 3,
+             }}
         >
           <Typography variant='h2' component='h2' sx={{ fontSize: '20px', color: 'primary.main' }} >
             Форма обратной связи
