@@ -1,7 +1,7 @@
 import React from 'react';
 import {Formik} from 'formik';
 import * as yup from 'yup';
-import {Box, Button, FormControl, Stack, Typography} from '@mui/material';
+import {Box, Button, Stack, Typography} from '@mui/material';
 import SelectCity from './SelectCity/SelectCity';
 import SelectSubject from './SelectSubject/SelectSubject';
 import SelectMethod from './SelectMethod/SelectMethod';
@@ -15,8 +15,10 @@ const Form = () => {
   const validationSchema = yup.object().shape({
     name: yup.string().required('Обязательное поле'),
     question: yup.string().required('Обязательное поле'),
-    checkbox: yup.boolean().oneOf([true]).required('Обязательное поле'),
-    email: yup.string().email('Введите e-mail в формате mail@mail.ru')
+    checkbox: yup.boolean().oneOf([true]).required(),
+    email: yup.string().email('Введите e-mail в формате mail@mail.ru'),
+    phone: yup.string().max(10, 'Введите корректный номер телефона')
+      .matches(/^(\\s*)?(\\+)?([- _():=+]?\\d[- _():=+]?){10}(\\s*)?$/, 'Введите корректный номер телефона')
   });
   return (
     <Formik
@@ -70,7 +72,11 @@ const Form = () => {
                           onBlur={(e: React.SyntheticEvent) => handleBlur(e)}
                           value={values.city}
               />
-              <PhoneInput/>
+              <PhoneInput name={'phone'}
+                          onChange={(e: React.SyntheticEvent) => handleChange(e)}
+                          onBlur={(e: React.SyntheticEvent) => handleBlur(e)}
+                          value={values.phone} error={errors.phone && touched.phone ? errors.phone : ''}
+              />
               <EmailInput name={'email'}
                           onChange={(e: React.SyntheticEvent) => handleChange(e)}
                           onBlur={(e: React.SyntheticEvent) => handleBlur(e)}
