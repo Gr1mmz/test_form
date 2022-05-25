@@ -64,11 +64,23 @@ const Form = () => {
                          onBlur={(e: React.SyntheticEvent) => handleBlur(e)}
                          value={values.name} error={errors.name && touched.name ? errors.name : ''}
               />
-              <SelectCity/>
+              <SelectCity name={'city'}
+                          onChange={handleChange}
+                          onBlur={(e: React.SyntheticEvent) => handleBlur(e)}
+                          value={values.city}
+              />
               <PhoneInput/>
               <EmailInput/>
-              <SelectSubject/>
-              <SelectMethod/>
+              <SelectSubject name={'subject'}
+                             onChange={handleChange}
+                             onBlur={(e: React.SyntheticEvent) => handleBlur(e)}
+                             value={values.subject}
+              />
+              <SelectMethod name={'method'}
+                            onChange={handleChange}
+                            onBlur={(e: React.SyntheticEvent) => handleBlur(e)}
+                            value={values.method}
+              />
               <QuestionInput name={'question'}
                              onChange={(e: React.SyntheticEvent) => handleChange(e)}
                              onBlur={(e: React.SyntheticEvent) => handleBlur(e)}

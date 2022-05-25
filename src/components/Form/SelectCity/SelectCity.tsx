@@ -1,23 +1,19 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from '@mui/material';
 
-const SelectCity = () => {
-  const [city, setCity] = React.useState('');
+type SelectCityProps = {
+  name: string,
+  value: string,
+  onChange: (event: SelectChangeEvent<string>, child: ReactNode) => void,
+  onBlur: (e: React.SyntheticEvent) => void,
+}
 
-  const changeCityHandler = (event: SelectChangeEvent) => {
-    setCity(event.target.value as string);
-  };
+const SelectCity = ({name, value, onChange, onBlur}: SelectCityProps) => {
   return (
     <FormControl>
       <InputLabel id='selectCity'>Город</InputLabel>
-      <Select
-        labelId='selectCity'
-        id='selectCity'
-        value={city}
-        label='Город'
-        onChange={changeCityHandler}
-      >
-
+      <Select name={name} labelId='selectCity' id='selectCity' value={value} label='Город'
+        onChange={onChange} onBlur={onBlur} >
         <MenuItem value='Иркутск'>Иркутск</MenuItem>
         <MenuItem value='Усолье-Сибирское'>Усолье-Сибирское</MenuItem>
         <MenuItem value='Черемхово'>Черемхово</MenuItem>

@@ -1,22 +1,19 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from '@mui/material';
 
-const SelectSubject = () => {
-  const [subject, setSubject] = React.useState('');
+type SelectSubjectProps = {
+  name: string,
+  value: string,
+  onChange: (event: SelectChangeEvent<string>, child: ReactNode) => void,
+  onBlur: (e: React.SyntheticEvent) => void,
+}
 
-  const changeSubjectHandler = (event: SelectChangeEvent) => {
-    setSubject(event.target.value as string);
-  };
+const SelectSubject = ({name, value, onChange, onBlur}: SelectSubjectProps) => {
   return (
     <FormControl>
       <InputLabel id='selectSubject'>Тема вопроса</InputLabel>
-      <Select
-        labelId='selectSubject'
-        id='selectSubject'
-        value={subject}
-        label='Тема вопроса'
-        onChange={changeSubjectHandler}
-      >
+      <Select name={name} labelId='selectSubject' id='selectSubject' value={value} label='Тема вопроса'
+        onChange={onChange} onBlur={onBlur} >
         <MenuItem value='HTML'>HTML</MenuItem>
         <MenuItem value='CSS'>CSS</MenuItem>
         <MenuItem value='JavaScript'>JavaScript</MenuItem>

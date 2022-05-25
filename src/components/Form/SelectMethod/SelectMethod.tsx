@@ -1,22 +1,19 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from '@mui/material';
 
-const SelectMethod = () => {
-  const [method, setMethod] = React.useState('');
+type SelectMethodProps = {
+  name: string,
+  value: string,
+  onChange: (event: SelectChangeEvent<string>, child: ReactNode) => void,
+  onBlur: (e: React.SyntheticEvent) => void,
+}
 
-  const changeMethodHandler = (event: SelectChangeEvent) => {
-    setMethod(event.target.value as string);
-  };
+const SelectMethod = ({name, value, onChange, onBlur}: SelectMethodProps) => {
   return (
     <FormControl>
       <InputLabel id='selectMethod'>Предпочитаемый способ связи</InputLabel>
-      <Select
-        labelId='selectMethod'
-        id='selectMethod'
-        value={method}
-        label='Предпочитаемый способ связи'
-        onChange={changeMethodHandler}
-      >
+      <Select name={name} labelId='selectMethod' id='selectMethod' value={value} label='Предпочитаемый способ связи'
+              onChange={onChange} onBlur={onBlur} >
         <MenuItem value='E-mail'>E-mail</MenuItem>
         <MenuItem value='СМС'>СМС</MenuItem>
         <MenuItem value='Звонок'>Звонок</MenuItem>
