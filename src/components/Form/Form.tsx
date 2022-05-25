@@ -15,7 +15,8 @@ const Form = () => {
   const validationSchema = yup.object().shape({
     name: yup.string().required('Обязательное поле'),
     question: yup.string().required('Обязательное поле'),
-    checkbox: yup.boolean().oneOf([true]).required('Обязательное поле')
+    checkbox: yup.boolean().oneOf([true]).required('Обязательное поле'),
+    email: yup.string().email('Введите e-mail в формате mail@mail.ru')
   });
   return (
     <Formik
@@ -70,7 +71,11 @@ const Form = () => {
                           value={values.city}
               />
               <PhoneInput/>
-              <EmailInput/>
+              <EmailInput name={'email'}
+                          onChange={(e: React.SyntheticEvent) => handleChange(e)}
+                          onBlur={(e: React.SyntheticEvent) => handleBlur(e)}
+                          value={values.email} error={errors.email && touched.email ? errors.email : ''}
+              />
               <SelectSubject name={'subject'}
                              onChange={handleChange}
                              onBlur={(e: React.SyntheticEvent) => handleBlur(e)}
