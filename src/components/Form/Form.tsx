@@ -34,27 +34,42 @@ const Form = () => {
       }}
       validateOnBlur
       validationSchema={validationSchema}
-      onSubmit={values => {
+      onSubmit={(values, actions) => {
         values.phone = `+7 ${values.phone}`;
         axios.post(`/feedback`, {values})
           .then(res => {
-            console.log(`Данные успешно отправлены! ${res}`);
+            console.log(`Данные успешно отправлены!`);
             console.log(`Отправленные данные:`);
             console.log(values);
+            actions.resetForm({
+              values: {
+                name: '',
+                city: '',
+                phone: '',
+                email: '',
+                subject: '',
+                method: '',
+                question: '',
+                checkbox: false,
+              }
+            })
           })
           .catch(error => {
             console.log(`Ошибка при передаче данных! ${error}`);
             console.log(`Отправленные данные:`);
             console.log(values);
           });
+
       }}
     >
       {({values,
           errors,
           touched,
+          isValid,
           handleChange,
           handleBlur,
-          handleSubmit
+          handleSubmit,
+          handleReset
         }) => (
         <Box
           component='form'
