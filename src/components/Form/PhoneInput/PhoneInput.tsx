@@ -29,7 +29,7 @@ type PhoneInputProps = {
 
 const PhoneInput = ({name, value, onChange, onBlur, error}: PhoneInputProps) => {
   return (
-    <TextField id='outlined-basic' label='Телефон' variant='outlined' type='phone' name={name} value={value}
+    <TextField id='outlined-basic' label='Телефон' variant='outlined' type='tel' name={name} value={value}
                error={!!error} helperText={error ? error : ''}
                onChange={(e) => onChange(e)}
                onBlur={(e) => onBlur(e)}
